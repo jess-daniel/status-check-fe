@@ -2,9 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
-import Landing from './components/pages/Landing';
+import Landing from './pages/Landing';
+import LoginPage from './pages/LoginPage';
+import Custom404 from './pages/Custom404';
 import './App.css';
-import Custom404 from './components/pages/Custom404';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       </header>
       <main>
         <Switch>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
           <Route exact path="/">
             <Landing />
           </Route>
