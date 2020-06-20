@@ -46,6 +46,11 @@ const AuthForm = ({ login, loginAction }) => {
     history.push('/login');
   };
 
+  const loginSubmit = (data) => {
+    loginAction(data);
+    history.push('/dashboard');
+  };
+
   if (!loginState) {
     return (
       <div className={classes.root}>
@@ -105,8 +110,8 @@ const AuthForm = ({ login, loginAction }) => {
       <div className={classes.root}>
         <form
           className={classes.form}
-          onSubmit={handleSubmit(loginAction)}
-          action={process.env.REACT_APP_BASE_API}
+          onSubmit={handleSubmit(loginSubmit)}
+          action={process.env.REACT_APP_SERVER_HOST}
           method="POST"
         >
           <Controller

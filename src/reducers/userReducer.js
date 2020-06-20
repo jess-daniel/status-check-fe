@@ -9,6 +9,7 @@ const initialState = {
   loggingIn: false,
   isAuthenticated: false,
   isFetching: false,
+  token: '',
   user: {},
   error: '',
 };
@@ -26,6 +27,7 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         loggingIn: false,
         isAuthenticated: true,
+        token: action.payload,
       };
     case LOGIN_FAILURE:
       return {
