@@ -8,16 +8,19 @@ import {
 const loginAction = (data) => async (dispatch) => {
   console.log('data', data);
   try {
-    dispatch({ type: START_LOGIN });
+    await dispatch({ type: START_LOGIN });
     const res = await axios.post(
       `${process.env.REACT_APP_SERVER_HOST}/auth/login`,
       data
     );
     localStorage.setItem('token', `${res.data.userData.access_token}`);
     console.log('login res', res);
-    dispatch({ type: LOGIN_SUCCESS, payload: res.data.userData.access_token });
+    await dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data.userData,
+    });
   } catch (error) {
-    dispatch({ type: LOGIN_FAILURE, payload: error });
+    await dispatch({ type: LOGIN_FAILURE, payload: error });
   }
 };
 

@@ -9,7 +9,7 @@ const initialState = {
   loggingIn: false,
   isAuthenticated: false,
   isFetching: false,
-  token: '',
+  userData: {},
   user: {},
   error: '',
 };
@@ -20,14 +20,13 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loggingIn: true,
-        isAuthenticated: false,
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
         loggingIn: false,
         isAuthenticated: true,
-        token: action.payload,
+        userData: action.payload,
       };
     case LOGIN_FAILURE:
       return {

@@ -43,7 +43,9 @@ const AuthForm = ({ login, loginAction }) => {
       data
     );
     console.log('res', res);
-    history.push('/login');
+    setTimeout(() => {
+      history.push('/login');
+    }, 1000);
   };
 
   const loginSubmit = (data) => {
@@ -54,6 +56,7 @@ const AuthForm = ({ login, loginAction }) => {
   if (!loginState) {
     return (
       <div className={classes.root}>
+        <h2>Create An Account</h2>
         <form
           className={classes.form}
           onSubmit={handleSubmit(registrationSubmit)}
@@ -108,6 +111,7 @@ const AuthForm = ({ login, loginAction }) => {
   } else {
     return (
       <div className={classes.root}>
+        <h2>Login</h2>
         <form
           className={classes.form}
           onSubmit={handleSubmit(loginSubmit)}
