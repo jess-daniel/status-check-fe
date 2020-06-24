@@ -22,6 +22,7 @@ export const resourceReducer = (state = initialState, action) => {
         ...state,
         fetchingResources: false,
         resources: action.payload,
+        error: '',
       };
     case RESOURCE_FAILURE:
       return {

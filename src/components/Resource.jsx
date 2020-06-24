@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAlert } from 'react-alert';
 import { makeStyles } from '@material-ui/core';
 import axiosWithAuth from '../utils/axiosWithAuth';

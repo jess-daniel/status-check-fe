@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -43,14 +44,17 @@ const useStyles = makeStyles({
 const DashboardContent = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [refresh, setRefresh] = useState(false);
   const { user, resources } = useSelector((state) => state);
 
   // Make call to resources for this user and map through and display
   useEffect(() => {
+    if (user.profile.email === undefined) return;
+    console.log('email', user.profile.email);
     dispatch({ type: FETCH_RESOURCES });
     axiosWithAuth()
-      .post('/api/resources/user', { email: 'demo_user@demo.com' })
+      .post('/api/resources/user', { email: user.profile.email })
       .then((res) => {
         console.log('resource res', res);
         dispatch({ type: RESOURCE_SUCCESS, payload: res.data });
@@ -61,10 +65,14 @@ const DashboardContent = () => {
       });
   }, [user, refresh]);
 
+  const goAdd = () => {
+    history.push('/add-resource');
+  };
+
   return resources.error ? (
     <>
       <p>You don't have any resources yet! Add one now! </p>
-      <Button variant="outlined" color="primary">
+      <Button onClick={goAdd} variant="outlined" color="primary">
         Add Resource
       </Button>
     </>
@@ -72,7 +80,7 @@ const DashboardContent = () => {
     <div>
       <div className={classes.resourceHeader}>
         <h1>Resources</h1>
-        <Button variant="outlined" color="primary">
+        <Button onClick={goAdd} variant="outlined" color="primary">
           Add A Resource
         </Button>
       </div>

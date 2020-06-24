@@ -7,6 +7,8 @@ import Landing from './pages/Landing';
 import LoginPage from './pages/LoginPage';
 import Custom404 from './pages/Custom404';
 import Dashboard from './pages/Dashboard';
+import AddResource from './pages/AddResource';
+
 import './App.css';
 
 function App() {
@@ -20,6 +22,9 @@ function App() {
           {/* TODO: Profile component */}
           <PrivateRoute path="/dashboard">
             <Dashboard />
+          </PrivateRoute>
+          <PrivateRoute path="/add-resource">
+            <AddResource />
           </PrivateRoute>
           <Route path="/login">
             <LoginPage />

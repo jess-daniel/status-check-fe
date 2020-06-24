@@ -13,6 +13,7 @@ const initialState = {
   isFetching: false,
   userData: {},
   user: {},
+  profile: {},
   error: '',
 };
 
@@ -46,7 +47,8 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        user: action.payload,
+        user: action.payload.user,
+        profile: action.payload.profile,
       };
     case USER_FAILURE:
       return {

@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
 // make a get request for the user's object
 // nested routes for tabs
 
-const Dashboard = ({ userAction, user }) => {
+const Dashboard = ({ userAction, profile }) => {
   useEffect(() => {
     userAction();
   }, []);
@@ -51,7 +51,9 @@ const Dashboard = ({ userAction, user }) => {
     // The
     <div className={classes.root}>
       <div className={classes.dashContainer}>
-        <p className={classes.capital}>Welcome Back, {user && user.nickname}</p>
+        <p className={classes.capital}>
+          Welcome Back, {profile && profile.nickname}
+        </p>
         <Link className={classes.navlink} to={`${url}`}>
           Dashboard
         </Link>
@@ -77,7 +79,7 @@ const Dashboard = ({ userAction, user }) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user.user,
+    profile: state.user.profile,
   };
 };
 
