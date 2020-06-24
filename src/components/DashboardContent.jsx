@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,6 +12,11 @@ import Button from '@material-ui/core/Button';
 
 import axiosWithAuth from '../utils/axiosWithAuth';
 import Resource from '../components/Resource';
+import {
+  FETCH_RESOURCES,
+  RESOURCE_SUCCESS,
+  RESOURCE_FAILURE,
+} from '../actions/types';
 
 const useStyles = makeStyles({
   heading: {
@@ -37,28 +42,26 @@ const useStyles = makeStyles({
 
 const DashboardContent = () => {
   const classes = useStyles();
-  const [resources, setResources] = useState([]);
+  const dispatch = useDispatch();
   const [refresh, setRefresh] = useState(false);
-  const [err, setErr] = useState();
-  const user = useSelector((state) => {
-    return state.user.user;
-  });
+  const { user, resources } = useSelector((state) => state);
 
   // Make call to resources for this user and map through and display
   useEffect(() => {
+    dispatch({ type: FETCH_RESOURCES });
     axiosWithAuth()
       .post('/api/resources/user', { email: 'demo_user@demo.com' })
       .then((res) => {
         console.log('resource res', res);
-        setResources(res.data);
+        dispatch({ type: RESOURCE_SUCCESS, payload: res.data });
       })
       .catch((err) => {
         console.error(err);
-        setErr(err);
+        dispatch({ type: RESOURCE_FAILURE, payload: err });
       });
   }, [user, refresh]);
 
-  return err ? (
+  return resources.error ? (
     <>
       <p>You don't have any resources yet! Add one now! </p>
       <Button variant="outlined" color="primary">
@@ -87,7 +90,7 @@ const DashboardContent = () => {
             </TableHead>
             <TableBody>
               {resources &&
-                resources.map((resource) => (
+                resources.resources.map((resource) => (
                   <Resource
                     key={resource.id}
                     resource={resource}

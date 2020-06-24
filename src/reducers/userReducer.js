@@ -1,9 +1,11 @@
-export const START_LOGIN = 'START_LOGIN';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
-export const FETCH_USER = 'FETCH_USER';
-export const USER_SUCCESS = 'USER_SUCCESS';
-export const USER_FAILURE = 'USER_FAILURE';
+import {
+  START_LOGIN,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  FETCH_USER,
+  USER_SUCCESS,
+  USER_FAILURE,
+} from '../actions/types';
 
 const initialState = {
   loggingIn: false,

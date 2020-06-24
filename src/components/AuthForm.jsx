@@ -48,8 +48,8 @@ const AuthForm = ({ login, loginAction }) => {
     }, 1000);
   };
 
-  const loginSubmit = (data) => {
-    loginAction(data);
+  const loginSubmit = async (data) => {
+    await loginAction(data);
     history.push('/dashboard');
   };
 

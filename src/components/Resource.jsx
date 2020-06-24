@@ -76,7 +76,7 @@ const Resource = ({ resource, setRefresh, refresh }) => {
       <TableCell align="center">{resource.last_check || 'null'}</TableCell>
       <TableCell>
         <Tooltip title="Delete">
-          <IconButton onClick={() => showAlert(resource)} aria-label="delete">
+          <IconButton onClick={showAlert} aria-label="delete">
             <DeleteIcon />
           </IconButton>
         </Tooltip>

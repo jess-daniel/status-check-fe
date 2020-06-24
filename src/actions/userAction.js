@@ -1,10 +1,6 @@
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-import {
-  FETCH_USER,
-  USER_SUCCESS,
-  USER_FAILURE,
-} from '../reducers/userReducer';
+import { FETCH_USER, USER_SUCCESS, USER_FAILURE } from '../actions/types';
 
 const accessToken = localStorage.getItem('token');
 

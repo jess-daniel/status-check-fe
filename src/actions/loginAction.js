@@ -1,9 +1,6 @@
 import axios from 'axios';
-import {
-  START_LOGIN,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-} from '../reducers/userReducer';
+
+import { START_LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions/types';
 
 const loginAction = (data) => async (dispatch) => {
   console.log('data', data);

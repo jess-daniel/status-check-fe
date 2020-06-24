@@ -5,8 +5,14 @@ const Upgrade = () => {
     <div>
       <h1>Upgrade</h1>
       <p>
-        Want to see this product expanded on? Let me know on Twitter! Possibe
-        Features:
+        Want to see this product expanded on? Let me know on Twitter!
+        <div>
+          <h4>Possible Features:</h4>
+          <ul>
+            <li>Push Notifications</li>
+            <li>Edit Status Check Frequency</li>
+          </ul>
+        </div>
       </p>
     </div>
   );
