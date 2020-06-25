@@ -39,7 +39,7 @@ const AuthForm = ({ login, loginAction }) => {
   const registrationSubmit = async (data) => {
     console.log('data', data);
     const res = await axios.post(
-      `${process.env.REACT_APP_SERVER_HOST}/auth/register`,
+      `${process.env.REACT_APP_SERVER_HOST}auth/register`,
       data
     );
     console.log('res', res);
