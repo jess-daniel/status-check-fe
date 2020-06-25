@@ -50,7 +50,9 @@ const AuthForm = ({ login, loginAction }) => {
 
   const loginSubmit = async (data) => {
     await loginAction(data);
-    history.push('/dashboard');
+    setTimeout(() => {
+      history.push('/dashboard');
+    }, 1000);
   };
 
   if (!loginState) {
