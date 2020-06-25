@@ -15,6 +15,7 @@ const useStyles = makeStyles({
 const NavBar = () => {
   const classes = useStyles();
   const history = useHistory();
+
   const logout = () => {
     localStorage.clear();
     history.push('/');
