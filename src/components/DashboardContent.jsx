@@ -74,9 +74,9 @@ const DashboardContent = () => {
     history.push('/add-resource');
   };
 
-  if (resources.fetchingResources === true) {
-    return <p>Loading...</p>;
-  }
+  // if (resources.fetchingResources === true) {
+  //   return <p>Loading...</p>;
+  // }
 
   return resources.error ? (
     <>
