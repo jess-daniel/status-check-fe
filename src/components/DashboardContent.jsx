@@ -74,58 +74,111 @@ const DashboardContent = () => {
     history.push('/add-resource');
   };
 
-  // if (resources.fetchingResources === true) {
-  //   return <p>Loading...</p>;
-  // }
-
-  return resources.error ? (
-    <>
-      <p>You don't have any resources yet! Add one now! </p>
-      <Button
-        className={classes.dashButton}
-        onClick={goAdd}
-        variant="outlined"
-        color="primary"
-      >
-        Add Resource
-      </Button>
-    </>
-  ) : (
-    <div>
-      <div className={classes.resourceHeader}>
-        <h1>Resources</h1>
-        <Button onClick={goAdd} variant="outlined" color="primary">
-          Add A Resource
+  if (resources.fetchingResources === true) {
+    return <p>Loading...</p>;
+  } else if (resources.error) {
+    return (
+      <>
+        <p>You don't have any resources yet! Add one now! </p>
+        <Button
+          className={classes.dashButton}
+          onClick={goAdd}
+          variant="outlined"
+          color="primary"
+        >
+          Add Resource
         </Button>
+      </>
+    );
+  } else if (!resources.error) {
+    return (
+      <div>
+        <div className={classes.resourceHeader}>
+          <h1>Resources</h1>
+          <Button onClick={goAdd} variant="outlined" color="primary">
+            Add A Resource
+          </Button>
+        </div>
+        <div className={classes.table}>
+          <TableContainer className={classes.tableContainer} component={Paper}>
+            <Table aria-label="resource table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="left">Name</TableCell>
+                  <TableCell align="center">Link</TableCell>
+                  <TableCell align="center">Status</TableCell>
+                  <TableCell align="center">Last Checked</TableCell>
+                  <TableCell align="left">Delete</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {resources &&
+                  resources.resources.map((resource) => (
+                    <Resource
+                      key={resource.id}
+                      resource={resource}
+                      refresh={refresh}
+                      setRefresh={setRefresh}
+                    />
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       </div>
-      <div className={classes.table}>
-        <TableContainer className={classes.tableContainer} component={Paper}>
-          <Table aria-label="resource table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="left">Name</TableCell>
-                <TableCell align="center">Link</TableCell>
-                <TableCell align="center">Status</TableCell>
-                <TableCell align="center">Last Checked</TableCell>
-                <TableCell align="left">Delete</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {resources &&
-                resources.resources.map((resource) => (
-                  <Resource
-                    key={resource.id}
-                    resource={resource}
-                    refresh={refresh}
-                    setRefresh={setRefresh}
-                  />
-                ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    return null;
+  }
+
+  // return resources.error ? (
+  //   <>
+  //     <p>You don't have any resources yet! Add one now! </p>
+  //     <Button
+  //       className={classes.dashButton}
+  //       onClick={goAdd}
+  //       variant="outlined"
+  //       color="primary"
+  //     >
+  //       Add Resource
+  //     </Button>
+  //   </>
+  // ) : (
+  //   <div>
+  //     <div className={classes.resourceHeader}>
+  //       <h1>Resources</h1>
+  //       <Button onClick={goAdd} variant="outlined" color="primary">
+  //         Add A Resource
+  //       </Button>
+  //     </div>
+  //     <div className={classes.table}>
+  //       <TableContainer className={classes.tableContainer} component={Paper}>
+  //         <Table aria-label="resource table">
+  //           <TableHead>
+  //             <TableRow>
+  //               <TableCell align="left">Name</TableCell>
+  //               <TableCell align="center">Link</TableCell>
+  //               <TableCell align="center">Status</TableCell>
+  //               <TableCell align="center">Last Checked</TableCell>
+  //               <TableCell align="left">Delete</TableCell>
+  //             </TableRow>
+  //           </TableHead>
+  //           <TableBody>
+  //             {resources &&
+  //               resources.resources.map((resource) => (
+  //                 <Resource
+  //                   key={resource.id}
+  //                   resource={resource}
+  //                   refresh={refresh}
+  //                   setRefresh={setRefresh}
+  //                 />
+  //               ))}
+  //           </TableBody>
+  //         </Table>
+  //       </TableContainer>
+  //     </div>
+  //   </div>
+  // )
 };
 
 export default DashboardContent;
