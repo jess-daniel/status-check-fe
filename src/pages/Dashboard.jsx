@@ -48,7 +48,6 @@ const Dashboard = ({ userAction, profile }) => {
   let { path, url } = useRouteMatch();
 
   return (
-    // The
     <div className={classes.root}>
       <div className={classes.dashContainer}>
         <p className={classes.capital}>
