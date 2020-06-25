@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import axiosWithAuth from '../utils/axiosWithAuth';
 import Resource from '../components/Resource';
@@ -38,6 +39,10 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
     margin: '30px auto 0px auto',
     alignItems: 'center',
+  },
+  dashButton: {
+    width: '15%',
+    margin: '0 auto',
   },
 });
 
@@ -69,10 +74,19 @@ const DashboardContent = () => {
     history.push('/add-resource');
   };
 
+  if (resources.fetchingResources === true) {
+    return <p>Loading...</p>;
+  }
+
   return resources.error ? (
     <>
       <p>You don't have any resources yet! Add one now! </p>
-      <Button onClick={goAdd} variant="outlined" color="primary">
+      <Button
+        className={classes.dashButton}
+        onClick={goAdd}
+        variant="outlined"
+        color="primary"
+      >
         Add Resource
       </Button>
     </>

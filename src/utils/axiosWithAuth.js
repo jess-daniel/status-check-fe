@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
   return axios.create({
     baseURL: baseApi,
     headers: {
-      authorization: token,
+      authorization: `Bearer ${token}`,
     },
   });
 };
