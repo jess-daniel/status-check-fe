@@ -5,7 +5,7 @@ import {
   FETCH_USER,
   USER_SUCCESS,
   USER_FAILURE,
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   loggingIn: false,
@@ -14,7 +14,7 @@ const initialState = {
   userData: {},
   user: {},
   profile: {},
-  error: '',
+  error: "",
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -54,7 +54,7 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        error: action.payload,
+        error: action.payload.response.status,
       };
     default:
       return state;
