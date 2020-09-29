@@ -49,6 +49,7 @@ export const userReducer = (state = initialState, action) => {
         isFetching: false,
         user: action.payload.user,
         profile: action.payload.profile,
+        isAuthenticated: true,
       };
     case USER_FAILURE:
       return {

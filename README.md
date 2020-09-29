@@ -1,68 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Status Check Frontend
 
-## Available Scripts
+## Information
 
-In the project directory, you can run:
+Status Check is a full stack web application that allows users to monitor the status of an API and recieve notifications if it goes down. Users can either interact with the application through the web interface or a CLI tool.
 
-### `yarn start`
+See [Backend Documentation](https://github.com/jess-daniel/node_status_check_be/) for details on the API.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+See [CLI Documentation](https://github.com/jess-daniel/status-check-cli) for details on the CLI tool of the project.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Key Features
 
-### `yarn test`
+- Ability to register and login via Auth0
+- Ability to Create, View, Update, and Delete resources
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `yarn build`
+#### React, Redux, Auth0
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Why did I choose this framework?
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- React is a diverse and varied front-end framework with multiple intuitive dependencies/hooks that make for a clean and effective frontend codebase.
+- Redux is a flexible and efficient stage management framework that allows a front-end developer to distribute state freely across their application and also gives them the freedom to customize how it may be rendered.
+- Auth0 is a flexible and efficient service that handles the authentication and authorization process allowing developers to launch services quickly and securely.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Styling Library
 
-### `yarn eject`
+#### Material-UI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Why did I choose this library?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Material-UI is a naturally intuitive styling library. It contains built-in responsive elements, flexible styling methods, and overall clear and concise documentation for its numerous features.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Front end deployed through Netlify
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Getting started
 
-## Learn More
+To get the server running locally:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Clone this repo
+- **yarn install** to install all required dependencies
+- Create and add all ENV variables
+- **yarn start** to start the local server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### ENV File Config
 
-### Code Splitting
+- REACT_APP_SERVER_HOST - API Base URL
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# Contributing
 
-### Analyzing the Bundle Size
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Issue/Bug Request
 
-### Making a Progressive Web App
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
-### Advanced Configuration
+### Feature Requests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+We would love to hear from you about new features which would improve this app and further the aims of our project. Please provide as much detail and information as possible to show us why you think your new feature should be implemented.
 
-### Deployment
+### Pull Requests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+If you have developed a patch, bug fix, or new feature that would improve this app, please submit a pull request. It is best to communicate your ideas with the developers first before investing a great deal of time into a pull request to ensure that it will mesh smoothly with the project.
 
-### `yarn build` fails to minify
+Remember that this project is licensed under the MIT license, and by submitting a pull request, you agree that your work will be, too.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Pull Request Guidelines
+
+- Ensure any install or build dependencies are removed before the end of the layer when doing a build.
+- Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
+- Ensure that your code conforms to our existing code conventions and test coverage.
+- Include the relevant issue number, if applicable.
+
+### Attribution
+
+These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
