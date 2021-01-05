@@ -1,35 +1,35 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import AuthForm from '../components/AuthForm';
+import React from "react";
+import { makeStyles } from "@material-ui/core";
+import AuthForm from "../components/AuthForm";
 
 const useStyles = makeStyles(() => ({
   root: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    height: '90vh',
-    backgroundColor: '#EFE2BA',
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "90vh",
+    backgroundColor: "#EFE2BA",
   },
   landingHero: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '40%',
-    lineHeight: '20px',
+    display: "flex",
+    flexDirection: "column",
+    width: "40%",
+    lineHeight: "20px",
   },
   ul: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
 
-    '& li': {
-      margin: '0 auto',
-      width: '60%',
-      textAlign: 'left',
-      lineHeight: '25px',
+    "& li": {
+      margin: "0 auto",
+      width: "60%",
+      textAlign: "left",
+      lineHeight: "25px",
     },
   },
   landingText: {
-    fontWeight: '500',
+    fontWeight: "500",
   },
 }));
 
@@ -48,6 +48,7 @@ const Landing = () => {
           <li>Know if an online service goes down</li>
           <li>Monitor your own website for outages</li>
         </ul>
+        <p>Demo User: demo_user1, Password: Password1!</p>
       </div>
       <div>
         <AuthForm login={false} />
