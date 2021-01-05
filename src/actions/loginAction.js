@@ -10,7 +10,7 @@ const loginAction = (data) => async (dispatch) => {
       `${process.env.REACT_APP_SERVER_HOST}/auth/login`,
       data
     );
-    localStorage.setItem('token', `${res.data.userData.access_token}`);
+    localStorage.setItem('token', `${res.data.userData.userData.access_token}`);
     console.log('login res', res);
     await dispatch({
       type: LOGIN_SUCCESS,
